@@ -1,12 +1,19 @@
 {
 	"name": "solid-request",
-	"version": "1.1.6",
+	"version": "1.1.7",
 	"description": "solid-js use-request hooks library",
 	"files": [
 		"dist",
 		"LICENSE",
 		"package.json",
 		"README.md"
+	],
+  "keywords": [
+    "solid-request",
+		"solid-hook",
+		"solid-use-request",
+		"solidjs-use-request",
+    "ahooks-solid "
 	],
 	"main": "./dist/useRequest.cjs.js",
 	"module": "./dist/useRequest.es.js",
@@ -15,7 +22,6 @@
 		"dev": "vite",
 		"build": "vite build"
 	},
-	"keywords": [],
 	"devDependencies": {
 		"@types/lodash": "^4.14.191",
 		"@types/node": "^18.15.5",
