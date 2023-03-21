@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"jsx": "preserve",
+		"jsxImportSource": "solid-js",
+		"skipLibCheck": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"esModuleInterop": true,
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"incremental": true,
+		"downlevelIteration": true,
+		"baseUrl": "./"
+	}
+}
