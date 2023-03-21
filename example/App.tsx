@@ -1,4 +1,4 @@
-import { createEffect, createMemo, createSignal, onMount } from 'solid-js'
+import { createSignal } from 'solid-js'
 import useRequest from '../src/index'
 import { getList } from './services'
 
