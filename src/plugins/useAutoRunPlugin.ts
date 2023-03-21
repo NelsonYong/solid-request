@@ -12,38 +12,15 @@ const useAutoRunPlugin: UseRequestPlugin<unknown, unknown[]> = (
 	createEffect(() => {
 		if (!manual) setHasAutoRun(() => unFunction(ready))
 	})
-
-	if (refreshDeps instanceof Array)
-		createEffect(() => {
-			on(
-				[hasAutoRun, ...refreshDeps],
-				([autoRun]) => {
-					if (!autoRun) return
-					if (!manual && autoRun) {
-						if (refreshDepsAction) {
-							refreshDepsAction()
-						} else {
-							fetchInstance.refresh()
-						}
-					}
-				},
-				{
-					defer: true,
-				}
-			)
-		})
-	else
-		createEffect(() => {
-			on(hasAutoRun, (h) => {
-				if (!manual && h) {
-					if (refreshDepsAction) {
-						refreshDepsAction()
-					} else {
-						fetchInstance.refresh()
-					}
-				}
-			})
-		})
+	createEffect(() => {
+		if (!manual && hasAutoRun()) {
+			if (refreshDepsAction) {
+				refreshDepsAction()
+			} else {
+				fetchInstance.refresh()
+			}
+		}
+	})
 
 	return {
 		onBefore: () => {

@@ -5,21 +5,22 @@ const useLoadingDelayPlugin: UseRequestPlugin<unknown, unknown[]> = (
 	fetchInstance,
 	{ loadingDelay }
 ) => {
-	let timerRef: Timeout
+	let $timerRef: Timeout
+
 	if (!unFunction(loadingDelay)) {
 		return {}
 	}
 
 	const cancelTimeout = () => {
-		if (timerRef) {
-			clearTimeout(timerRef)
+		if ($timerRef) {
+			clearTimeout($timerRef)
 		}
 	}
 
 	return {
 		onBefore: () => {
 			cancelTimeout()
-			timerRef = setTimeout(() => {
+			$timerRef = setTimeout(() => {
 				fetchInstance.setState({
 					loading: true,
 				})

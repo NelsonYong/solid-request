@@ -94,7 +94,7 @@ export interface UseRequestBasicOptions<TData, TParams extends unknown[]> {
 	/**
 	 * Dependent on responsive objects, and the `watch` incoming listener object usage for `vue`.
 	 */
-	refreshDeps?: AccessorArray<any>
+	refreshDeps?: boolean
 	refreshDepsAction?: () => void
 
 	/**

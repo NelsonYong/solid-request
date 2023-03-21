@@ -1,4 +1,4 @@
-import { createSignal, onMount, onCleanup } from 'solid-js'
+import { createSignal, onMount, onCleanup, createMemo } from 'solid-js'
 import { unFunction } from './utils/isFunction'
 
 import Fetch from './Fetch'
@@ -60,6 +60,11 @@ function useRequestImplement<TData, TParams extends any[]>(
 		}
 	}
 
+	const data = createMemo(() => state().data)
+	const loading = createMemo(() => state().loading)
+	const params = createMemo(() => state().params)
+	const error = createMemo(() => state().error)
+
 	const initState = plugins
 		.map((p) => p?.onInit?.(fetchOptions))
 		.filter(Boolean)
@@ -89,7 +94,10 @@ function useRequestImplement<TData, TParams extends any[]>(
 	})
 
 	return {
-		...state(),
+		data,
+		error,
+		loading,
+		params,
 		cancel: fetchInstance.cancel.bind(fetchInstance),
 		refresh: fetchInstance.refresh.bind(fetchInstance),
 		refreshAsync: fetchInstance.refreshAsync.bind(fetchInstance),
