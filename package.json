@@ -1,6 +1,6 @@
 {
 	"name": "solid-request",
-	"version": "1.1.7",
+	"version": "1.2.0",
 	"description": "solid-js use-request hooks library",
 	"files": [
 		"dist",
@@ -15,8 +15,8 @@
 		"solidjs-use-request",
     "ahooks-solid "
 	],
-	"main": "./dist/useRequest.cjs.js",
-	"module": "./dist/useRequest.es.js",
+	"main": "./dist/js/index.cjs.js",
+	"module": "./dist/js/index.es.js",
 	"types": "./dist/types/index.d.ts",
 	"scripts": {
 		"dev": "vite",
